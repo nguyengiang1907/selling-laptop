@@ -1,10 +1,12 @@
 package com.example.sellinglaptops.service.laptop;
 
+import com.example.sellinglaptops.model.Category;
 import com.example.sellinglaptops.model.Laptop;
 import com.example.sellinglaptops.repository.ILaptopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class LaptopService implements ILaptopService {
@@ -30,5 +32,10 @@ public class LaptopService implements ILaptopService {
     @Override
     public void remove(long id) {
         iLaptopRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Laptop> findAllByIdCategory(Category category) {
+        return iLaptopRepository.findAllByIdCategory(category);
     }
 }
