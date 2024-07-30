@@ -37,7 +37,7 @@ public class SeenController {
     }
     @PostMapping("/{idAccount}/{idLaptop}")
     private ResponseEntity<Seen> createSeen(@PathVariable long idAccount, @PathVariable long idLaptop) {
-        Optional<Laptop> laptop = iLaptopService.findById(idLaptop);
+            Optional<Laptop> laptop = iLaptopService.findById(idLaptop);
         LocalDateTime localDateTime = LocalDateTime.now();
         Optional<Account> account = iAccountService.findById(idAccount);
         Seen seen = iSeenService.findByAccountAndLaptop(account.get(),laptop.get());

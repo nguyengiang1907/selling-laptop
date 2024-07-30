@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +40,8 @@ public class CartController {
     private ResponseEntity<Cart> addCart(@PathVariable long idUser, @PathVariable long idLaptop, @RequestBody QuantityRequest quantityRequest){
         Optional<Account> account = iAccountService.findById(idUser);
         Optional<Laptop> laptop = iLaptopService.findById(idLaptop);
-        Cart newCart = new Cart(laptop.get().getQuantity(),laptop.get(),account.get());
+        LocalDateTime localDateTime = LocalDateTime.now();
+        Cart newCart = new Cart(quantityRequest.getQuantity(),laptop.get(), account.get(),localDateTime,localDateTime);
         Optional<Cart> cart = iCartService.findCartByIdAccountAndIdLaptop(account.get(),laptop.get());
         if (cart.isEmpty()){
             newCart.setQuantity(quantityRequest.getQuantity());
