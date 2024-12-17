@@ -36,6 +36,6 @@ public class LaptopService implements ILaptopService {
 
     @Override
     public List<Laptop> findAllByIdCategory(Category category) {
-        return iLaptopRepository.findAllByIdCategory(category);
+        return iLaptopRepository.findAllByCategory(category);
     }
 }

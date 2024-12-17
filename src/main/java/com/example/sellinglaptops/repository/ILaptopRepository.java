@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ILaptopRepository extends JpaRepository<Laptop,Long> {
-    List<Laptop> findAllByIdCategory(Category category);
+    List<Laptop> findAllByCategory(Category category);
 }

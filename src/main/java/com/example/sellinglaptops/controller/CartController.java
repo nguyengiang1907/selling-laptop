@@ -27,8 +27,7 @@ public class CartController {
     private ILaptopService iLaptopService;
 
     @GetMapping("/{id}")
-    private ResponseEntity<List<Cart>> getCartById(@PathVariable long id){
-        Optional<Account> account = iAccountService.findById(id);
+    private ResponseEntity<List<Cart>> getCartById(@PathVariable long id){Optional<Account> account = iAccountService.findById(id);
         List<Cart> carts = iCartService.findCartByIdAccount(account.get());
         if (carts.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

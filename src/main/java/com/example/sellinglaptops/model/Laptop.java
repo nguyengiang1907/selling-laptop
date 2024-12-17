@@ -21,15 +21,15 @@ public class Laptop {
     private String name;
     private String cpu;
     private String ram;
-    private String display;// màn hình
-    private String appearance;// ngoại hình
+    private String display;
+    private String appearance;
     private double price;
     private int quantity;
     private String image;
 
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", nullable = false)
     @ManyToOne
-    private Category idCategory;
+    private Category category;
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
@@ -42,7 +42,7 @@ public class Laptop {
     public Laptop() {
     }
 
-    public Laptop(String name, String cpu, String ram, String display, String appearance, double price, int quantity, Category idCategory, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Laptop(String name, String cpu, String ram, String display, String appearance, double price, int quantity, Category category, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.name = name;
         this.cpu = cpu;
         this.ram = ram;
@@ -50,12 +50,12 @@ public class Laptop {
         this.appearance = appearance;
         this.price = price;
         this.quantity = quantity;
-        this.idCategory = idCategory;
+        this.category = category;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Laptop(long id, String name, String cpu, String ram, String display, String appearance, double price, int quantity, Category idCategory, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Laptop(long id, String name, String cpu, String ram, String display, String appearance, double price, int quantity, Category category, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.cpu = cpu;
@@ -64,7 +64,7 @@ public class Laptop {
         this.appearance = appearance;
         this.price = price;
         this.quantity = quantity;
-        this.idCategory = idCategory;
+        this.category = category;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }

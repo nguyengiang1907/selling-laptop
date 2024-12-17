@@ -31,4 +31,13 @@ public class Account {
         this.address = address;
         this.image = image;
     }
+
+    public Account(String name, String password, String email, String phoneNumber, String address, String image) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.image = image;
+    }
 }

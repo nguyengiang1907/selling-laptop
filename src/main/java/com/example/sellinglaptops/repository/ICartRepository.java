@@ -11,6 +11,7 @@ import java.util.Optional;
 
 public interface ICartRepository extends CrudRepository<Cart, Long> {
      List<Cart> findCartByIdAccount(Account account);
+
      Optional<Cart> findCartByIdAccountAndIdLaptop(Account account, Laptop laptop);
 
 }

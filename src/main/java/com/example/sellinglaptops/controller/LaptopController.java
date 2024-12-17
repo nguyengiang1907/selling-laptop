@@ -43,6 +43,5 @@ public class LaptopController {
         }else {
             return new ResponseEntity<>(laptops, HttpStatus.OK);
         }
-
     }
 }

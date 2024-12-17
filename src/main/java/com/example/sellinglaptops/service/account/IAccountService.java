@@ -4,4 +4,6 @@ import com.example.sellinglaptops.model.Account;
 import com.example.sellinglaptops.service.IGenerateService;
 
 public interface IAccountService extends IGenerateService<Account> {
+    Account findAllByEmail(String email);
+    Account findAllByEmailAndPassword(String email, String password);
 }

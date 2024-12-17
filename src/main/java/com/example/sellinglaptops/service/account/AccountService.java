@@ -29,4 +29,14 @@ public class AccountService implements IAccountService {
     public void remove(long id) {
         iAccountRepository.deleteById(id);
     }
+
+    @Override
+    public Account findAllByEmail(String email) {
+        return iAccountRepository.findAllByEmail(email);
+    }
+
+    @Override
+    public Account findAllByEmailAndPassword(String email, String password) {
+        return iAccountRepository.findAllByEmailAndPassword(email,password);
+    }
 }
